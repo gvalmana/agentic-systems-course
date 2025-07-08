@@ -15,11 +15,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@langchain/langgraph": "^0.0.8",
-    "@langchain/core": "^0.1.48",
-    "typescript": "^5.4.2",
+    "@langchain/core": "^0.3.62",
+    "@langchain/langgraph": "^0.3.6",
+    "@types/uuid": "^9.0.8",
     "ts-node": "^10.9.2",
-    "uuid": "^9.0.1",
-    "@types/uuid": "^9.0.8"
+    "typescript": "^5.4.2",
+    "uuid": "^9.0.1"
   }
 }
