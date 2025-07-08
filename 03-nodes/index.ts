@@ -1,53 +1,37 @@
-import { Annotation } from "@langchain/langgraph";
+import { Annotation, StateGraph } from "@langchain/langgraph";
 
-// Define our burger state
+// Define el estado de la hamburguesa
 const BurgerState = Annotation.Root({
   bread: Annotation<boolean>,
   meat: Annotation<boolean>,
   vegetables: Annotation<boolean>,
 });
 
-// Define our state type
-type BurgerStateType = {
-  bread: boolean;
-  meat: boolean;
-  vegetables: boolean;
-};
+// Define el tipo de estado de la hamburguesa
 
-// Node: Bread preparation station
-function prepareBread(state: BurgerStateType): BurgerStateType {
+// Nodo: Pan de la hamburguesa
+function prepareBread(state: typeof BurgerState.State) {
   return {
-    ...state,
     bread: true,
   };
 }
 
-// Node: Meat cooking station
-function cookMeat(state: BurgerStateType): BurgerStateType {
+// Nodo: Cocción de la carne
+function cookMeat(state: typeof BurgerState.State) {
   return {
-    ...state,
     meat: true,
   };
 }
 
-// Node: Vegetable preparation station
-function prepareVegetables(state: BurgerStateType): BurgerStateType {
+// Nodo: Preparación de las verduras
+function prepareVegetables(state: typeof BurgerState.State) {
   return {
-    ...state,
     vegetables: true,
   };
 }
 
-// Initial burger state
-const initialBurger: BurgerStateType = {
-  bread: false,
-  meat: false,
-  vegetables: false,
-};
+const graph = new StateGraph(BurgerState);
 
-// Process burger through stations
-const withBread = prepareBread(initialBurger);
-const withMeat = cookMeat(withBread);
-const finalBurger = prepareVegetables(withMeat);
-
-console.log("Final Burger State:", finalBurger);
+graph.addNode("prepareBread", prepareBread);
+graph.addNode("cookMeat", cookMeat);
+graph.addNode("prepareVegetables", prepareVegetables);
