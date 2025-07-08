@@ -1,0 +1,22 @@
+{
+  "name": "langgraphjs-curso",
+  "version": "1.0.0",
+  "description": "Curso práctico de LangGraph JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "langgraph",
+    "typescript",
+    "curso"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@langchain/core": "^0.3.62",
+    "@langchain/langgraph": "^0.3.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
+  }
+}
