@@ -1,5 +1,5 @@
 import { handler as basicHandler } from "./01-basic";
-import { handler as aiTextProcessorHandler } from "./02-textProcessor";
+import { handler as aiTextProcessorHandler } from "./02-text-processor";
 
 // Basic example
 basicHandler();
