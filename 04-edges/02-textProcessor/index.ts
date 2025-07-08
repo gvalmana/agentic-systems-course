@@ -5,10 +5,6 @@ import { HumanMessage } from "@langchain/core/messages";
 import { config } from "dotenv";
 config();
 
-// Node 1: Usa AI para corregir errores gramaticales
-// Node 2: Ajusta el tono a formal
-
-//AI-Powered Content Enhancement Pipeline
 const model = new ChatOpenAI({
   model: "gpt-4o-mini",
   apiKey: process.env.OPENAI_API_KEY,

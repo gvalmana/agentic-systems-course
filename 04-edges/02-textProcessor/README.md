@@ -1,4 +1,4 @@
-# AI-Powered Content Enhancement Pipeline
+# AI-Text Processor
 
 Este ejemplo demuestra cómo crear un pipeline de procesamiento de texto usando LangGraph y OpenAI para mejorar contenido en dos pasos:
 
