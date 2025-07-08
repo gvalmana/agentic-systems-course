@@ -4,7 +4,8 @@
   "description": "Curso práctico de LangGraph JS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:edges": "ts-node 04-edges/index.ts"
   },
   "keywords": [
     "langgraph",
