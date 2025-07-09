@@ -1,6 +1,6 @@
 import { handler as basicHandler } from "./01-basic";
 import { handler as aiTextProcessorHandler } from "./02-text-processor";
-import { handler as toolNodeHandler } from "./03-tool-node";
+import { handler as toolNodeHandler } from "./04-tool-node";
 
 // Basic example
 basicHandler();
