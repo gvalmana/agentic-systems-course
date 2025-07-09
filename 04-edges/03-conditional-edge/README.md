@@ -1,5 +1,48 @@
 # Conditional Edge: Sentiment-Based Router
 
+## 🎯 Reto
+
+Construye un sistema de procesamiento de texto que analice el sentimiento del mensaje y proporcione respuestas personalizadas según la emoción detectada.
+
+**Requisitos:**
+
+- Crear un grafo usando LangGraph que implemente un router basado en el sentimiento del texto
+- El sistema debe:
+  1. Analizar si un texto es positivo, negativo o neutral
+  2. Enrutar el texto al procesador adecuado según el sentimiento
+  3. Generar una respuesta apropiada para cada tipo de sentimiento:
+     - Textos positivos → Respuesta entusiasta
+     - Textos negativos → Respuesta empática
+     - Textos neutrales → Respuesta objetiva
+- Implementar edges condicionales para el enrutamiento dinámico
+- Mantener un estado que registre:
+  - El texto original
+  - El sentimiento detectado
+  - Las respuestas generadas
+  - La salida final
+
+**Ejemplo de entrada/salida esperada:**
+
+```typescript
+// Entrada positiva
+Input: "¡Me encanta este nuevo proyecto!"
+Output: {
+  user_input: "¡Me encanta este nuevo proyecto!",
+  sentiment: "positive",
+  graph_output: "¡Qué maravilloso ver tu entusiasmo! Tu energía positiva..."
+}
+
+// Entrada negativa
+Input: "Me siento muy frustrado con estos errores."
+Output: {
+  user_input: "Me siento muy frustrado con estos errores.",
+  sentiment: "negative",
+  graph_output: "Entiendo tu frustración. Es normal sentirse así cuando..."
+}
+```
+
+## Solución
+
 Este ejemplo demuestra cómo usar edges condicionales en LangGraph para crear un router basado en sentimientos que procesa texto de manera diferente según su contenido emocional.
 
 ## 📊 Diagrama del Flujo

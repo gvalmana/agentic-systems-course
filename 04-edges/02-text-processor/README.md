@@ -1,5 +1,35 @@
 # AI-Text Processor
 
+## 🎯 Reto
+
+Construye un pipeline de procesamiento de texto que realice las siguientes tareas:
+
+1. Reciba un texto de entrada del usuario
+2. Corrija errores gramaticales en el texto
+3. Ajuste el tono del texto para que sea más formal
+4. Retorne el texto procesado
+
+**Requisitos:**
+
+- Usar LangGraph para crear el flujo de procesamiento
+- Implementar al menos dos nodos: uno para corrección gramatical y otro para ajuste de tono
+- Mantener un estado que guarde el texto en cada etapa del proceso
+- Utilizar OpenAI GPT para el procesamiento del texto
+- El resultado final debe mostrar tanto el texto original como las transformaciones
+
+**Ejemplo de entrada/salida esperada:**
+
+```
+Entrada: "hola amigo como estas"
+Salida: {
+  texto_original: "hola amigo como estas",
+  correccion_gramatical: "Hola amigo, ¿cómo estás?",
+  texto_final: "Saludos estimado, ¿cómo se encuentra usted?"
+}
+```
+
+## Solución
+
 Este ejemplo demuestra cómo crear un pipeline de procesamiento de texto usando LangGraph y OpenAI para mejorar contenido en dos pasos:
 
 1. Corrección gramatical
