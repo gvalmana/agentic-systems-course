@@ -122,6 +122,68 @@ const routeBySentiment = (state: typeof stateSchema.State) => {
 }
 ```
 
+### Enfoques para addConditionalEdges
+
+LangGraph permite dos enfoques diferentes para implementar edges condicionales:
+
+#### 1. Usando Mapeo de Rutas (Enfoque con Objeto)
+
+Este es el enfoque usado en este ejemplo, donde:
+
+- La función condicional retorna un string que actúa como identificador de ruta
+- `addConditionalEdges` recibe un objeto que mapea esos identificadores a nodos reales
+- Es útil cuando quieres separar la lógica de enrutamiento de los nombres de los nodos
+- Solo permite enrutar a un nodo a la vez
+
+```typescript
+// Función retorna un identificador
+const routeBySentiment = (state) => {
+  return "ROUTE_TO_POSITIVE";  // Retorna una clave
+}
+
+// addConditionalEdges usa un objeto para mapear
+.addConditionalEdges("node_a", routeBySentiment, {
+  ROUTE_TO_POSITIVE: "process_positive",  // Mapeo de clave a nodo
+})
+```
+
+#### 2. Usando Nombres de Nodos Directos (Enfoque con Array)
+
+Un enfoque alternativo donde:
+
+- La función condicional retorna directamente un array con los nombres de los nodos destino
+- `addConditionalEdges` recibe un array con todos los posibles nodos destino
+- Es más directo cuando conoces los nombres exactos de los nodos
+- Permite ejecución en paralelo retornando múltiples nodos
+
+```typescript
+// Función retorna directamente nombres de nodos
+const routeToNodes = (state) => {
+  if (condition) {
+    return ["node_b", "node_c"];  // Ejecutará B y C en paralelo
+  }
+  return ["node_d"];              // Ejecutará solo D
+}
+
+// addConditionalEdges usa un array de posibles destinos
+.addConditionalEdges("node_a", routeToNodes, ["node_b", "node_c", "node_d"])
+```
+
+#### ¿Cuándo usar cada enfoque?
+
+1. **Usa el enfoque con Objeto (Mapeo de Rutas) cuando:**
+
+   - Quieres separar la lógica de enrutamiento de los nombres de nodos
+   - Los nombres de las rutas son significativamente diferentes de los nombres de los nodos
+   - Solo necesitas enrutar a un nodo a la vez
+   - Prefieres una capa extra de indirección para mejor mantenibilidad
+
+2. **Usa el enfoque con Array (Nombres Directos) cuando:**
+   - Necesitas ejecutar múltiples nodos en paralelo
+   - Los nombres de los nodos son simples y directos
+   - No necesitas una capa extra de indirección
+   - Quieres mantener la lógica más simple y directa
+
 ## 📝 Ejemplo de Uso
 
 ```typescript

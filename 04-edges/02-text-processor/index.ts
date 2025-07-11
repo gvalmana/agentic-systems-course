@@ -2,8 +2,6 @@ import { ChatOpenAI } from "@langchain/openai";
 import { Annotation, START, StateGraph, END } from "@langchain/langgraph";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { HumanMessage } from "@langchain/core/messages";
-import { config } from "dotenv";
-config();
 
 const model = new ChatOpenAI({
   model: "gpt-4o-mini",

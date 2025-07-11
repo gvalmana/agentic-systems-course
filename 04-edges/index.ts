@@ -1,7 +1,11 @@
+import { config } from "dotenv";
 import { handler as basicHandler } from "./01-basic";
 import { handler as aiTextProcessorHandler } from "./02-text-processor";
 import { handler as conditionalEdgeHandler } from "./03-conditional-edge";
 import { handler as toolNodeHandler } from "./04-tool-node";
+import { handler as parallelHandler } from "./05-parallel";
+
+config();
 
 // 01-basic
 // basicHandler();
@@ -12,7 +16,7 @@ import { handler as toolNodeHandler } from "./04-tool-node";
 // );
 
 // 03-conditional-edge
-conditionalEdgeHandler("Me siento muy frustrado con estos errores.");
+// conditionalEdgeHandler("Me siento muy frustrado con estos errores.");
 
 //04-tool-node
 // toolNodeHandler([
@@ -21,3 +25,6 @@ conditionalEdgeHandler("Me siento muy frustrado con estos errores.");
 //     content: "Cual es el clima en San Francisco?",
 //   },
 // ]);
+
+// 05-parallel
+parallelHandler("Argentina");
