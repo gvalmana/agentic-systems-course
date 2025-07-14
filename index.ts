@@ -3,11 +3,11 @@ import { config } from "dotenv";
 config();
 
 // ================================ 04-edges ================================
-import { handler as basicHandler } from "./04-edges/01-basic";
-import { handler as aiTextProcessorHandler } from "./04-edges/02-text-processor";
-import { handler as conditionalEdgeHandler } from "./04-edges/03-conditional-edge";
-import { handler as toolNodeHandler } from "./04-edges/04-tool-node";
-import { handler as parallelHandler } from "./04-edges/05-parallel";
+// import { handler as basicHandler } from "./04-edges/01-basic";
+// import { handler as aiTextProcessorHandler } from "./04-edges/02-text-processor";
+// import { handler as conditionalEdgeHandler } from "./04-edges/03-conditional-edge";
+// import { handler as toolNodeHandler } from "./04-edges/04-tool-node";
+// import { handler as parallelHandler } from "./04-edges/05-parallel";
 
 // 01-basic
 // basicHandler();
@@ -32,6 +32,6 @@ import { handler as parallelHandler } from "./04-edges/05-parallel";
 // parallelHandler("Argentina");
 
 // ================================ 05-command ================================
-import { handler as commandHandler } from "./05-command";
+// import { handler as commandHandler } from "./05-command";
 
-commandHandler("Me siento muy frustrado con estos errores.");
+// commandHandler("Me siento muy frustrado con estos errores.");
