@@ -2,7 +2,7 @@
 
 ## 🎯 Reto
 
-Construye un agente React utilizando LangGraph que interactúe con la biblioteca Smile UI para generar documentación y ejemplos de código. El agente debe ser capaz de responder preguntas sobre componentes y generar respuestas estructuradas.
+Construye un agente utilizando LangGraph que interactúe con la biblioteca Smile UI para generar documentación y ejemplos de código. El agente debe ser capaz de responder preguntas sobre componentes y generar respuestas estructuradas.
 
 **Requisitos:**
 
