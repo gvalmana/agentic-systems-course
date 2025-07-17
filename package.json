@@ -15,8 +15,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@alegradev/smile-mcp": "^1.2.4",
     "@langchain/core": "0.3.62",
     "@langchain/langgraph": "0.3.6",
+    "@langchain/mcp-adapters": "^0.5.3",
     "@langchain/openai": "^0.5.18",
     "@types/uuid": "^9.0.8",
     "dotenv": "^17.1.0",
