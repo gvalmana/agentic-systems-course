@@ -8,14 +8,6 @@ const prompt = `
 Explicame como funciona el SModal
 `;
 
-const responseFormatter = () => {
-  return z.object({
-    title: z.string().describe("Titulo del codigo"),
-    description: z.string().describe("Descripcion del codigo"),
-    code: z.string().describe("Codigo"),
-  });
-};
-
 export const handler = async () => {
   const messages = [
     {
@@ -36,7 +28,11 @@ export const handler = async () => {
     tools,
     responseFormat: {
       prompt: `El title y description deben ser en español en un todo extremadamente formal`,
-      schema: responseFormatter(),
+      schema: z.object({
+        title: z.string().describe("Titulo del codigo"),
+        description: z.string().describe("Descripcion del codigo"),
+        code: z.string().describe("Codigo"),
+      }),
     },
   });
 
