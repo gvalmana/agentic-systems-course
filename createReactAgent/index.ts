@@ -42,6 +42,9 @@ export const handler = async () => {
 
   const responseAgent = result.structuredResponse;
 
+  // Cerrar la conexión con el MCP
+  await client.close();
+
   console.log(responseAgent);
 
   return responseAgent;
