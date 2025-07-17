@@ -13,6 +13,13 @@ const client = new MultiServerMCPClient({
       command: "node",
       args: [smileMcpPath],
     },
+    alegra: {
+      transport: "sse",
+      url: "https://mcp-bills.derianrosadonavarrete.workers.dev/sse",
+      headers: {
+        Authorization: `Bearer ${process.env.ALEGRA_API_KEY}`,
+      },
+    },
   },
 });
 
