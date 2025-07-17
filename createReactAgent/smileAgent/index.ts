@@ -36,7 +36,7 @@ export const handler = async () => {
     tools,
     responseFormat: {
       prompt: `El title y description deben ser en español en un todo extremadamente formal`,
-      responseFormat: responseFormatter(),
+      schema: responseFormatter(),
     },
   });
 
