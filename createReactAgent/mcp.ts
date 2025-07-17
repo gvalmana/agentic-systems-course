@@ -6,7 +6,6 @@ const client = new MultiServerMCPClient({
   throwOnLoadError: true,
   prefixToolNameWithServerName: true,
   additionalToolNamePrefix: "",
-  useStandardContentBlocks: true,
   mcpServers: {
     smile: {
       transport: "stdio",
