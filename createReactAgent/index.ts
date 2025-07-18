@@ -1,21 +1,19 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
+import { HumanMessage, SystemMessage } from "@langchain/core/messages";
 import { z } from "zod";
 
 import client from "./mcp";
 
 const prompt = `
-Explicame como funciona el SModal
+  Eres un agente de IA que responde preguntas sobre el codigo de Smile UI
+
+  Tienes que responder en español.
+  El lenguaje de programacion es typescript.
+  El framework es Vue3.
 `;
 
 export const handler = async () => {
-  const messages = [
-    {
-      role: "user",
-      content: prompt,
-    },
-  ];
-
   const model = new ChatOpenAI({
     model: "gpt-4o-mini",
     apiKey: process.env.OPENAI_API_KEY,
@@ -27,25 +25,31 @@ export const handler = async () => {
     llm: model,
     tools,
     responseFormat: {
-      prompt: `El title y description deben ser en español en un todo extremadamente formal`,
+      prompt:
+        "El title y description deben ser en ingles en un todo extremadamente formal",
       schema: z.object({
-        title: z.string().describe("Titulo del codigo"),
-        description: z.string().describe("Descripcion del codigo"),
-        code: z.string().describe("Codigo"),
+        title: z.string().describe("Titulo del componente"),
+        description: z.string().describe("Descripcion del componente"),
+        code: z.string().describe("Codigo del componente"),
       }),
     },
   });
 
-  const result = await agent.invoke({
-    messages,
+  const systemMessage = new SystemMessage({
+    content: prompt,
   });
 
-  const responseAgent = result.structuredResponse;
+  const message = new HumanMessage({
+    content: "Explica el componente SButton",
+  });
 
-  // Cerrar la conexión con el MCP
+  const result = await agent.invoke({
+    messages: [systemMessage, message],
+  });
+
+  const responseFormatter = result.structuredResponse;
+
   await client.close();
 
-  console.log(responseAgent);
-
-  return responseAgent;
+  console.log(responseFormatter);
 };
